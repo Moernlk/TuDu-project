@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <title>Tu Du</title>
+    <style>
+      .headline {
+        border: solid black;
+      }
+      .list {
+        border: solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="headline">
+      <input id="subjectTuDu" type="text" />
+      <input id="dateTuDu" type="date">
+      <button id="addTuDu" onclick="addTuDu()">Add TuDu</button>
+      <div><img src="" alt=""></div>
+    </div>
+
+    <div id="listTuDu" class="list"></div>
+
+
+    <script>
+
+      const tudu = [{
+        title:'Acordar',
+        duedate:'2020-06-01'
+      },
+      {
+        title: '',
+        duedate: ''
+      }
+      ];
+
+      function render() {
+
+        tudu.forEach(function (x) {
+          
+          const subject = document.createElement('div');
+          subject.innerText = x.title + '  ' + x.duedate;
+
+          const div = document.getElementById('listTuDu');
+          div.appendChild(subject);
+
+        })
+      }
+      
+  
+
+
+      function addTuDu(x) {
+        document.getElementById('listTuDu').innerHTML = '';
+
+        const sub = document.getElementById('subjectTuDu');
+        const subject = sub.value;
+        const date = document.getElementById('dateTuDu');
+        const duedate = date.value;
+        tudu.push({
+          title: subject,
+          duedate: duedate
+        });
+
+        render()
+      }
+
+      function button(x) {
+        const butao = document.createElement('button');
+        butao.innerText = x;
+        document.body.appendChild(butao);
+      }
+
+
+
+
+
+
+      
+      
+    </script>
+  </body>
+</html>
